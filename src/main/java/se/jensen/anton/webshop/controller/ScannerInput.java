@@ -2,7 +2,7 @@ package se.jensen.anton.webshop.controller;
 
 
 import se.jensen.anton.webshop.model.Verifying;
-import se.jensen.anton.webshop.view.InputView;
+import se.jensen.anton.webshop.view.ViewInput;
 
 import java.util.Scanner;
 
@@ -14,7 +14,7 @@ public class ScannerInput {
         this.scanner = scanner;
     }
 
-    public String getMessage(Verifying verifying, InputView view) {
+    public String getMessage(Verifying verifying, ViewInput view) {
         while (true) {
             System.out.println(view.prompt());
             String message = scanner.nextLine();

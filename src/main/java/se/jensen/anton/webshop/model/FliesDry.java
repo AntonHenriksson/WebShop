@@ -1,6 +1,6 @@
 package se.jensen.anton.webshop.model;
 
-public class NymphFlies extends Product {
+public class FliesDry extends Product {
     @Override
     public String category() {
         return "";

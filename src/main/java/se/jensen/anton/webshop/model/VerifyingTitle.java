@@ -1,6 +1,6 @@
 package se.jensen.anton.webshop.model;
 
-public class TitleVerifying implements Verifying {
+public class VerifyingTitle implements Verifying {
     @Override
     public boolean valid(String message) {
         return !message.isBlank() && message.length() <= 15;

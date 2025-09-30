@@ -9,9 +9,5 @@ public class AddProduct {
         this.input = input;
     }
 
-    public Product addProduct() {
-
-    }
-
 
 }

@@ -1,6 +1,6 @@
 package se.jensen.anton.webshop.model;
 
-import se.jensen.anton.webshop.view.MenuView;
+import se.jensen.anton.webshop.view.ViewMenu;
 
 import java.util.Scanner;
 
@@ -27,8 +27,8 @@ public class Menu {
     public void mainMenu() {
 
         while (running) {
-            MenuView menuView = new MenuView();
-            menuView.showMenu();
+            ViewMenu viewMenu = new ViewMenu();
+            viewMenu.showMenu();
             switch (menuChoice()) {
                 case 1:
                     System.out.println("View ALL Products");

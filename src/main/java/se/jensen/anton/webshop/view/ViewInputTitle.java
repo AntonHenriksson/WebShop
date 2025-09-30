@@ -1,6 +1,6 @@
 package se.jensen.anton.webshop.view;
 
-public class DescriptionView implements InputView {
+public class ViewInputTitle implements ViewInput {
     @Override
     public void info(String message) {
         System.out.println("You typed: ---" + message + "--- is that correct?");
@@ -9,6 +9,6 @@ public class DescriptionView implements InputView {
 
     @Override
     public String prompt() {
-        return "Enter description for the Product, example: This works well for trout";
+        return "Enter a title with maximum of 15 characters";
     }
 }

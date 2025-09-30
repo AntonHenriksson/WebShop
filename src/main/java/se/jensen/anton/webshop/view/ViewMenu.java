@@ -1,6 +1,6 @@
 package se.jensen.anton.webshop.view;
 
-public class MenuView {
+public class ViewMenu {
 
     public void showMenu() {
         System.out.println("""

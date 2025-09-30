@@ -1,6 +1,6 @@
 package se.jensen.anton.webshop.model;
 
-public class ArticleNumberVerifying implements Verifying {
+public class VerifyingArticleNumber implements Verifying {
     @Override
     public boolean valid(String message) {
         if (message.length() == 5) {

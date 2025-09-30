@@ -1,6 +1,6 @@
 package se.jensen.anton.webshop.model;
 
-public class PriceVerifying implements Verifying {
+public class VerifyingPrice implements Verifying {
 
     @Override
     public boolean valid(String message) {
