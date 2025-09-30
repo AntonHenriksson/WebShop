@@ -16,7 +16,7 @@ public class Main {
         AddProduct add = new AddProduct();
         //montana.setArticleNumber(add.addArticleNumber(scanner));
         //System.out.println(montana.getArticleNumber());
-        montana.setTitle(add.addTitle(scanner));
+
         System.out.println(montana.getTitle());
 
         scanner.close();

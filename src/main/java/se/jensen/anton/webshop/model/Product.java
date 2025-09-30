@@ -3,7 +3,7 @@ package se.jensen.anton.webshop.model;
 public abstract class Product {
     private String articleNumber;
     private String title;
-    private String price;
+    private double price;
     private String description;
     private String category;
 
@@ -18,11 +18,11 @@ public abstract class Product {
         this.description = description;
     }
 
-    public String getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
