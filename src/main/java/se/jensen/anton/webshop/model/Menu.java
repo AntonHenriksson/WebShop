@@ -1,56 +1,57 @@
 package se.jensen.anton.webshop.model;
 
-import java.util.InputMismatchException;
+import se.jensen.anton.webshop.view.MenuView;
+
 import java.util.Scanner;
 
 public class Menu {
     boolean running = true;
+    private Scanner scanner = new Scanner(System.in);
 
     public void quit() {
         running = false;
     }
 
-    public void mainMenu(Scanner scanner) {
-        int choice = 0;
-        while (running) {
-            System.out.println("""
-                    --------------------------
-                        Welcome to the menu
-                    --------------------------
-                    1  View ALL Products
-                    2  Add NEW Product
-                    3  Remove EXISTING Product
-                    4  View DETAILS Of Product
-                    5  ---------QUIT----------
-                    --------------------------
-                    """);
-            try {
-                choice = scanner.nextInt();
-                switch (choice) {
-                    case 1:
-                        System.out.println("View ALL Products");
-                        //viewALL
-                        break;
-                    case 2:
-                        System.out.println("Add NEW Product");
-                        //addPRODUCTS
-                        break;
-                    case 3:
-                        System.out.println("Remove EXISTING Product");
-                        //removePRODUCTS
-                        break;
-                    case 4:
-                        System.out.println("View DETAILS Of Product");
-                        //viewDETAILS
-                        break;
-                    case 5:
-                        System.out.println("Quit");
-                        quit();
-                }
 
-            } catch (InputMismatchException e) {
-                System.out.println(e.getMessage());
+    public int menuChoice() {
+        int choice = 0;
+
+        try {
+            choice = Integer.parseInt(scanner.nextLine());
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid input, enter a number please");
+        }
+        return choice;
+    }
+
+    public void mainMenu() {
+
+        while (running) {
+            MenuView menuView = new MenuView();
+            menuView.showMenu();
+            switch (menuChoice()) {
+                case 1:
+                    System.out.println("View ALL Products");
+                    //viewALL
+                    break;
+                case 2:
+                    System.out.println("Add NEW Product");
+                    //addPRODUCTS
+                    break;
+                case 3:
+                    System.out.println("Remove EXISTING Product");
+                    //removePRODUCTS
+                    break;
+                case 4:
+                    System.out.println("View DETAILS Of Product");
+                    //viewDETAILS
+                    break;
+                case 5:
+                    System.out.println("Quit");
+                    quit();
             }
+
+
         }
 
     }

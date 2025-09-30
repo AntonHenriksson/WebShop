@@ -1,6 +1,4 @@
-package se.jensen.anton.webshop.view;
-
-import se.jensen.anton.webshop.model.Product;
+package se.jensen.anton.webshop.model;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -27,24 +25,6 @@ public class AddProduct extends Product {
 
     }
 
-    public String addTitle(String title) {
-
-        if (title.length() <= 15) {
-            try {
-                title = title.substring(0, 1).toUpperCase() + title.substring(1).toLowerCase();
-                System.out.println("Is the title " + title + "?");
-                System.out.println("Yes or no");
-                if (title.equalsIgnoreCase("yes")) {
-                    return title;
-                }
-            } catch (StringIndexOutOfBoundsException e) {
-                System.out.println();
-            }
-
-
-        }
-    }
-
     public double addPrice(Scanner scanner) {
         System.out.println("Enter price for the Product, example: 4.99");
         while (true) {
@@ -66,6 +46,25 @@ public class AddProduct extends Product {
                 price = scanner.nextDouble();
             }
         }
+    }
+
+    public String addTitle(String title) {
+
+        if (title.length() <= 15) {
+            try {
+                title = title.substring(0, 1).toUpperCase() + title.substring(1).toLowerCase();
+                System.out.println("Is the title " + title + "?");
+                System.out.println("Yes or no");
+                if (title.equalsIgnoreCase("yes")) {
+                    return title;
+                }
+            } catch (StringIndexOutOfBoundsException e) {
+                System.out.println();
+            }
+
+
+        }
+        return null;
     }
 
     public String addDescription(Scanner scanner) {
@@ -94,4 +93,5 @@ public class AddProduct extends Product {
 
         }
     }
+
 }
