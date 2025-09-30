@@ -8,21 +8,18 @@ import java.util.Scanner;
 
 
 public class ScannerInput {
-    private final InputView view;
-    private final Scanner scanner = new Scanner(System.in);
+    private final Scanner scanner;
 
-
-    public ScannerInput(InputView view) {
-        this.view = view;
+    public ScannerInput(Scanner scanner) {
+        this.scanner = scanner;
     }
 
-
-    public String getMessage(Verifying verifying) {
+    public String getMessage(Verifying verifying, InputView view) {
         while (true) {
             System.out.println(view.prompt());
             String message = scanner.nextLine();
             if (!verifying.valid(message)) {
-                System.out.println(view.prompt());
+                continue;
             } else {
                 view.info(message);
                 if (scanner.nextLine().equalsIgnoreCase("yes")) {

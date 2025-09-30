@@ -1,15 +1,17 @@
 package se.jensen.anton.webshop.controller;
 
-import se.jensen.anton.webshop.model.TitleVerifying;
-import se.jensen.anton.webshop.view.TitleView;
+import se.jensen.anton.webshop.view.PriceView;
+
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        TitleView view = new TitleView();
-        ScannerInput input = new ScannerInput(view);
+        Scanner scanner = new Scanner(System.in);
+        PriceView view = new PriceView();
 
-        input.getMessage(new TitleVerifying());
+        ScannerInput input = new ScannerInput(scanner);
 
 
+        scanner.close();
     }
 }
