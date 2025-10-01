@@ -1,18 +1,6 @@
-    public String addTitle(Scanner scanner) {
-        System.out.println("Enter title for the Product, Maximum 15 letters");
-        while (true) {
-            String title = scanner.nextLine();
-            if (title.length() <= 15) {
-                try {
-                    title = title.substring(0, 1).toUpperCase() + title.substring(1).toLowerCase();
-                    System.out.println("Is the title " + title + "?");
-                    System.out.println("Yes or no");
-                    if(scanner.nextLine().equalsIgnoreCase("yes")){
-                    return title;}
-                } catch (StringIndexOutOfBoundsException e) {
-                    System.out.println("Enter valid title for the Product, Maximum 15 letters");
-                }
-            } else {
-                System.out.println("Enter valid title for the Product, Maximum 15 letters");
-            }
-        }}
+Controller för produktskapande
+
+Controller för lagring(?)
+Controller för inläsning(?)
+Model som lagrar inläst data(?)
+View för inläst data(?)

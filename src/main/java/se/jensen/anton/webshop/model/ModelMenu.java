@@ -4,7 +4,7 @@ import se.jensen.anton.webshop.view.ViewMenu;
 
 import java.util.Scanner;
 
-public class Menu {
+public class ModelMenu {
     boolean running = true;
     private Scanner scanner = new Scanner(System.in);
 

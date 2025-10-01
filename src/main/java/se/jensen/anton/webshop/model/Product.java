@@ -41,4 +41,15 @@ public abstract class Product {
     public void setArticleNumber(String articleNumber) {
         this.articleNumber = articleNumber;
     }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "articleNumber='" + articleNumber + '\'' +
+                ", title='" + title + '\'' +
+                ", price=" + price +
+                ", description='" + description + '\'' +
+                ", category='" + category + '\'' +
+                '}';
+    }
 }
