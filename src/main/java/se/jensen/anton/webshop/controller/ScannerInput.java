@@ -1,33 +1,27 @@
 package se.jensen.anton.webshop.controller;
 
 
-import se.jensen.anton.webshop.model.Verifying;
-import se.jensen.anton.webshop.view.ViewInput;
-
 import java.util.Scanner;
 
 
-public class ScannerInput {
+public class ScannerInput implements InputController {
+
     private final Scanner scanner;
 
     public ScannerInput(Scanner scanner) {
         this.scanner = scanner;
     }
 
-    public String getMessage(Verifying verifying, ViewInput view) {
-        while (true) {
-            System.out.println(view.prompt());
-            String message = scanner.nextLine();
-            if (!verifying.valid(message)) {
-                continue;
-            } else {
-                view.info(message);
-                if (scanner.nextLine().equalsIgnoreCase("yes")) {
-                    return verifying.format(message);
-                }
-            }
+    @Override
+    public String getInput() {
 
-        }
-
+        return scanner.nextLine();
     }
+
+    @Override
+    public void showMessage(String message) {
+        System.out.println(message);
+    }
+
+
 }
