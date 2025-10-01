@@ -55,4 +55,12 @@ public class ModelMenu {
         }
 
     }
+
+    private Product createProduct() {
+        Product product = new FliesStreamer();
+        product.setArticleNumber(artController.requestData());
+        product.setDescription(descController.requestData());
+        product.setPrice(priceController.requestData());
+        product.setTitle(titleController.requestData());
+    }
 }

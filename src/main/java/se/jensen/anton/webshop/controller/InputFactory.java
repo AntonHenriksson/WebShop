@@ -1,7 +1,7 @@
 package se.jensen.anton.webshop.controller;
 
-import se.jensen.anton.webshop.model.VerifyingArticleNumber;
-import se.jensen.anton.webshop.view.ViewInputArticleNumber;
+import se.jensen.anton.webshop.model.Verifying;
+import se.jensen.anton.webshop.view.ViewInput;
 
 import java.util.Scanner;
 
@@ -12,11 +12,9 @@ public class InputFactory {
         this.scanner = scanner;
     }
 
-    public static ControllerArticleNumber createScannerController(Scanner scanner) {
-        VerifyingArticleNumber verifier = new VerifyingArticleNumber();
-        ViewInputArticleNumber view = new ViewInputArticleNumber();
-        InputController input = new ScannerInput(scanner);
-        return new ControllerArticleNumber(verifier, view, input);
+    public static ControllerRequest scannerController(Verifying verifier, ViewInput view, InputController input) {
+
+        return new ControllerRequest(verifier, view, input);
 
 
     }

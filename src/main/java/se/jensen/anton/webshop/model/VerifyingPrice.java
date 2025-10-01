@@ -14,7 +14,7 @@ public class VerifyingPrice implements Verifying {
 
     @Override
     public String format(String message) {
-        double value = Double.parseDouble(message);
-        return String.format("%.2f", value);
+        double num = Double.parseDouble(message);
+        return String.format("%.2f", num);
     }
 }

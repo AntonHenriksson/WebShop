@@ -1,24 +1,24 @@
 package se.jensen.anton.webshop.controller;
 
-import se.jensen.anton.webshop.model.VerifyingArticleNumber;
-import se.jensen.anton.webshop.view.ViewInputArticleNumber;
+import se.jensen.anton.webshop.model.Verifying;
+import se.jensen.anton.webshop.view.ViewInput;
 
-public class ControllerArticleNumber {
+public class ControllerRequest {
 
-    private final VerifyingArticleNumber verifier;
-    private final ViewInputArticleNumber view;
+    private final Verifying verifier;
+    private final ViewInput view;
     private final InputController input;
 
-    // Constructor that actually sets the fields
-    public ControllerArticleNumber(VerifyingArticleNumber verifier,
-                                   ViewInputArticleNumber view,
-                                   InputController input) {
+
+    public ControllerRequest(Verifying verifier,
+                             ViewInput view,
+                             InputController input) {
         this.verifier = verifier;
         this.view = view;
         this.input = input;
     }
 
-    public String requestArticleNum() {
+    public String requestData() {
         while (true) {
             System.out.println(view.prompt());
             String message = input.getInput();

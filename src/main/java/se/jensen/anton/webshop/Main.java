@@ -1,22 +1,27 @@
 package se.jensen.anton.webshop;
 
-import se.jensen.anton.webshop.controller.ControllerArticleNumber;
+import se.jensen.anton.webshop.controller.ControllerRequest;
 import se.jensen.anton.webshop.controller.InputFactory;
 import se.jensen.anton.webshop.controller.ScannerInput;
-import se.jensen.anton.webshop.model.FliesStreamer;
-import se.jensen.anton.webshop.model.Product;
+import se.jensen.anton.webshop.model.*;
+import se.jensen.anton.webshop.view.ViewInputArticleNumber;
+import se.jensen.anton.webshop.view.ViewInputDescription;
 import se.jensen.anton.webshop.view.ViewInputPrice;
+import se.jensen.anton.webshop.view.ViewInputTitle;
 
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        ViewInputPrice view = new ViewInputPrice();
-        ControllerArticleNumber artController = InputFactory.createScannerController(scanner);
-        ScannerInput input = new ScannerInput(scanner);
+        ControllerRequest descController = InputFactory.scannerController(new VerifyingDescription(), new ViewInputDescription(), new ScannerInput(scanner));
+        ControllerRequest artController = InputFactory.scannerController(new VerifyingArticleNumber(), new ViewInputArticleNumber(), new ScannerInput(scanner));
+        ControllerRequest titleController = InputFactory.scannerController(new VerifyingTitle(), new ViewInputTitle(), new ScannerInput(scanner));
+        ControllerRequest priceController = InputFactory.scannerController(new VerifyingPrice(), new ViewInputPrice(), new ScannerInput(scanner));
         Product montana = new FliesStreamer();
-        montana.setArticleNumber(artController.requestArticleNum());
+        montana.setCategory(montana.category());
+
+
         System.out.println(montana);
         scanner.close();
     }
