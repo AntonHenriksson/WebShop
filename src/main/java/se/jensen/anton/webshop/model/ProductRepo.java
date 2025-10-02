@@ -25,7 +25,10 @@ public class ProductRepo {
             if (product.getArticleNumber().equals(articleNum)) {
                 return product;
             }
+
         }
         return null;
     }
+
 }
+

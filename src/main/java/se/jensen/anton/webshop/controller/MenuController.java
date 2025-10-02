@@ -1,43 +1,18 @@
 package se.jensen.anton.webshop.controller;
 
 import se.jensen.anton.webshop.model.ModelMenu;
-import se.jensen.anton.webshop.view.ViewMenu;
+import se.jensen.anton.webshop.view.ViewMainMenu;
 
 public class MenuController {
 
     private final InputController input;
-    private final ViewMenu view;
+    private final ViewMainMenu view;
     private final ModelMenu model;
 
-    public MenuController(ViewMenu view, ModelMenu model, InputController input) {
+    public MenuController(ViewMainMenu view, ModelMenu model, InputController input) {
         this.input = input;
         this.view = view;
         this.model = model;
-    }
-
-
-    public void mainMenu() {
-
-        while (model.isRunning()) {
-            view.showMenu();
-            switch (menuChoice()) {
-                case 1 -> System.out.println("View ALL Products");
-                //viewALL
-                case 2 -> System.out.println("Add NEW Product");
-                //addPRODUCTS
-                case 3 -> System.out.println("Remove EXISTING Product");
-                //removePRODUCTS
-                case 4 -> System.out.println("View DETAILS Of Product");
-                //viewDETAILS
-                case 5 -> {
-                    System.out.println("Quit");
-                    model.quit();
-                }
-            }
-
-
-        }
-
     }
 
 
@@ -50,5 +25,17 @@ public class MenuController {
             System.out.println("Invalid input, enter a number please");
         }
         return choice;
+    }
+
+    protected InputController getInput() {
+        return input;
+    }
+
+    protected ViewMainMenu getView() {
+        return view;
+    }
+
+    protected ModelMenu getModel() {
+        return model;
     }
 }

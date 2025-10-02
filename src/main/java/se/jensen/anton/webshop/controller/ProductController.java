@@ -18,6 +18,10 @@ public class ProductController {
         view.showProducts(repo.getProducts());
     }
 
+    public void listSpecificProduct(String Articlenum) {
+        view.showProduct(repo.getWithArticleNum(Articlenum));
+    }
+
     public Product getSpecificProduct(String Articlenum) {
         return repo.getWithArticleNum(Articlenum);
     }
@@ -25,6 +29,10 @@ public class ProductController {
     public void addProduct(Product product) {
         repo.add(product);
         view.showPrompt("Product added" + product.getTitle());
+    }
+
+    public void removeProduct(String Articlenum) {
+        repo.remove(getSpecificProduct(Articlenum));
     }
 }
 
