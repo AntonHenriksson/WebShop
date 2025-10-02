@@ -2,12 +2,10 @@ package se.jensen.anton.webshop;
 
 import se.jensen.anton.webshop.controller.ControllerRequest;
 import se.jensen.anton.webshop.controller.InputFactory;
+import se.jensen.anton.webshop.controller.MenuController;
 import se.jensen.anton.webshop.controller.ScannerInput;
 import se.jensen.anton.webshop.model.*;
-import se.jensen.anton.webshop.view.ViewInputArticleNumber;
-import se.jensen.anton.webshop.view.ViewInputDescription;
-import se.jensen.anton.webshop.view.ViewInputPrice;
-import se.jensen.anton.webshop.view.ViewInputTitle;
+import se.jensen.anton.webshop.view.*;
 
 import java.util.Scanner;
 
@@ -20,7 +18,8 @@ public class Main {
         ControllerRequest priceController = InputFactory.scannerController(new VerifyingPrice(), new ViewInputPrice(), new ScannerInput(scanner));
         Product montana = new FliesStreamer();
         montana.setCategory(montana.category());
-
+        MenuController menu = new MenuController(new ViewMenu(), new ModelMenu(), new ScannerInput(scanner));
+        menu.mainMenu();
 
         System.out.println(montana);
         scanner.close();
