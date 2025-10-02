@@ -8,4 +8,8 @@ public class InputMenuController extends MenuController {
         super(view, model, input);
     }
 
+    public void inputMenu() {
+
+    }
+
 }

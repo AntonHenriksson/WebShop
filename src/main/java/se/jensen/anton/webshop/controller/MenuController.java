@@ -2,14 +2,15 @@ package se.jensen.anton.webshop.controller;
 
 import se.jensen.anton.webshop.model.ModelMenu;
 import se.jensen.anton.webshop.view.ViewMainMenu;
+import se.jensen.anton.webshop.view.ViewMenu;
 
 public class MenuController {
 
     private final InputController input;
-    private final ViewMainMenu view;
+    private final ViewMenu view;
     private final ModelMenu model;
 
-    public MenuController(ViewMainMenu view, ModelMenu model, InputController input) {
+    public MenuController(ViewMenu view, ModelMenu model, InputController input) {
         this.input = input;
         this.view = view;
         this.model = model;
