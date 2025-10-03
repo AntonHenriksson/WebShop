@@ -1,7 +1,6 @@
 package se.jensen.anton.webshop.controller;
 
 import se.jensen.anton.webshop.model.ModelMenu;
-import se.jensen.anton.webshop.view.ViewMainMenu;
 import se.jensen.anton.webshop.view.ViewMenu;
 
 public class MenuController {
@@ -32,7 +31,7 @@ public class MenuController {
         return input;
     }
 
-    protected ViewMainMenu getView() {
+    protected ViewMenu getView() {
         return view;
     }
 
