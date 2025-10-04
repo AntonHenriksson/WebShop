@@ -1,10 +1,10 @@
 package se.jensen.anton.webshop.controller;
 
 import se.jensen.anton.webshop.model.ModelMenu;
-import se.jensen.anton.webshop.view.ViewMainMenu;
+import se.jensen.anton.webshop.view.ViewMenu;
 
 public class InputMenuController extends MenuController {
-    public InputMenuController(ViewMainMenu view, ModelMenu model, InputController input) {
+    public InputMenuController(ViewMenu view, ModelMenu model, InputController input) {
         super(view, model, input);
     }
 
