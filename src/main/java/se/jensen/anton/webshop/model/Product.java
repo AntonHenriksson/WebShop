@@ -49,6 +49,7 @@ public abstract class Product {
         this.articleNumber = articleNumber;
     }
 
+
     @Override
     public String toString() {
         return "Product{" +
