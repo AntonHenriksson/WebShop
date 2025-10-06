@@ -18,10 +18,5 @@ public class ScannerInput implements InputController {
         return scanner.nextLine();
     }
 
-    @Override
-    public void showMessage(String message) {
-        System.out.println(message);
-    }
-
 
 }
