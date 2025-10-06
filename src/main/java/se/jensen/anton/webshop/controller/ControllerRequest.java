@@ -5,7 +5,6 @@ import se.jensen.anton.webshop.view.*;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class ControllerRequest {
     private final Verifying verifier;
@@ -46,12 +45,12 @@ public class ControllerRequest {
     }
 
     public List<ControllerRequest> createControllerRequests() {
-        Scanner controllScanner = new Scanner(System.in);
+
         List<ControllerRequest> list = new ArrayList<>();
-        ControllerRequest DController = new ControllerRequest(new VerifyingDescription(), new ViewInputDescription(), new ScannerInput(controllScanner));
-        ControllerRequest TController = new ControllerRequest(new VerifyingTitle(), new ViewInputTitle(), new ScannerInput(controllScanner));
-        ControllerRequest PController = new ControllerRequest(new VerifyingPrice(), new ViewInputPrice(), new ScannerInput(controllScanner));
-        ControllerRequest AController = new ControllerRequest(new VerifyingArticleNumber(), new ViewInputArticleNumber(), new ScannerInput(controllScanner));
+        ControllerRequest DController = new ControllerRequest(new VerifyingDescription(), new ViewInputDescription(), new ScannerInput());
+        ControllerRequest TController = new ControllerRequest(new VerifyingTitle(), new ViewInputTitle(), new ScannerInput());
+        ControllerRequest PController = new ControllerRequest(new VerifyingPrice(), new ViewInputPrice(), new ScannerInput());
+        ControllerRequest AController = new ControllerRequest(new VerifyingArticleNumber(), new ViewInputArticleNumber(), new ScannerInput());
         //atpd
         list.add(AController);
         list.add(TController);

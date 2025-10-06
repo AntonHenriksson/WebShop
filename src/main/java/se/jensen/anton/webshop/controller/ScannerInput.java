@@ -6,10 +6,10 @@ import java.util.Scanner;
 
 public class ScannerInput implements InputController {
 
-    private final Scanner scanner;
+    private final Scanner scanner = new Scanner(System.in);
 
-    public ScannerInput(Scanner scanner) {
-        this.scanner = scanner;
+    public ScannerInput() {
+
     }
 
     @Override

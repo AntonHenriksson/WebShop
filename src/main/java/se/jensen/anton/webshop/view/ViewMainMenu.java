@@ -18,6 +18,19 @@ public class ViewMainMenu implements ViewMenu {
 
     }
 
+    public void showAddMenu() {
+        System.out.println(""" 
+                --------------------------
+                 In what product Category:
+                1  DryFlies
+                2  NymphFlies
+                3  StreamerFlies
+                4  Back to Menu
+                --------------------------
+                """);
+
+    }
+
 }
 
 

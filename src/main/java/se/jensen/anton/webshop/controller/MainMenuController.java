@@ -1,7 +1,6 @@
 package se.jensen.anton.webshop.controller;
 
-import se.jensen.anton.webshop.model.ModelMenu;
-import se.jensen.anton.webshop.model.ProductRepo;
+import se.jensen.anton.webshop.model.*;
 import se.jensen.anton.webshop.view.ProductView;
 import se.jensen.anton.webshop.view.ViewMainMenu;
 
@@ -11,21 +10,45 @@ public class MainMenuController extends MenuController {
     }
 
 
-    public void mainMenu(ProductController productController) {
+    public void mainMenu(ControllerRequest controllerRequest) {
+
+        ProductController productController = new ProductController(new ProductView(), new ProductRepo());
         while (getModel().isRunning()) {
-            new ProductController(new ProductView(), new ProductRepo());
             getView().showMenu();
             switch (menuChoice()) {
                 case 1 -> {
                     System.out.println("View ALL Products");
                     productController.listProducts();
                 }
-                case 2 -> System.out.println("Add NEW Product");
+                case 2 -> {
+                    getView().showAddMenu();
+                    switch (menuChoice()) {
+                        case 1 -> {
+                            FliesDry dry = ProductFactory.createFliesDry(controllerRequest);
+                            productController.addProduct(dry);
+                        }
+                        case 2 -> {
+                            FliesNymph nymph = ProductFactory.createFliesNymph(controllerRequest);
+                            productController.addProduct(nymph);
+                        }
+                        case 3 -> {
+                            FliesStreamer streamer = ProductFactory.createFliesStreamer(controllerRequest);
+                            productController.addProduct(streamer);
+                        }
+                        case 4 -> {
+                            break;
+                        }
+                    }
+                }
 
-                case 3 -> System.out.println("Remove EXISTING Product");
-                // exising
-                case 4 -> System.out.println("View DETAILS Of Product");
-                //viewDETAILS
+                case 3 -> {
+                    System.out.println("Enter the articlenumber of the product you want to remove.");
+                    productController.removeProduct(getInput().getInput());
+                }
+                case 4 -> {
+                    System.out.println("Enter the articlenumber of the product you want to see.");
+                    productController.showSpecificProduct(getInput().getInput());
+                }
                 case 5 -> {
                     System.out.println("Quit");
                     getModel().quit();
@@ -33,5 +56,6 @@ public class MainMenuController extends MenuController {
             }
         }
     }
+
 
 }
