@@ -8,6 +8,7 @@ public class ProductController {
     private ProductView view;
     private ProductRepo repo;
 
+
     public ProductController(ProductView view, ProductRepo repo) {
         this.view = view;
         this.repo = repo;
@@ -34,6 +35,8 @@ public class ProductController {
     public void removeProduct(String Articlenum) {
         repo.remove(getSpecificProduct(Articlenum));
     }
+
+
 }
 
 

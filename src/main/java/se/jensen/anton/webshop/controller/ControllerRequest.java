@@ -4,7 +4,6 @@ import se.jensen.anton.webshop.model.Verifying;
 import se.jensen.anton.webshop.view.ViewInput;
 
 public class ControllerRequest {
-
     private final Verifying verifier;
     private final ViewInput view;
     private final InputController input;
@@ -17,6 +16,7 @@ public class ControllerRequest {
         this.view = view;
         this.input = input;
     }
+
 
     public String requestData() {
         while (true) {

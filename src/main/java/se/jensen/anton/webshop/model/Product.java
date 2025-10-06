@@ -7,6 +7,7 @@ public abstract class Product {
     private String description;
     private String category;
 
+
     public abstract String category();
 
     public String getCategory() {
