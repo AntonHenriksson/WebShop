@@ -21,7 +21,7 @@ public class MainMenuController extends MenuController {
                     productController.listProducts();
                 }
                 case 2 -> System.out.println("Add NEW Product");
-                //add new product
+
                 case 3 -> System.out.println("Remove EXISTING Product");
                 // exising
                 case 4 -> System.out.println("View DETAILS Of Product");

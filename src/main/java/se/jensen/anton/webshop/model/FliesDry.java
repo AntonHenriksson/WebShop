@@ -1,9 +1,8 @@
 package se.jensen.anton.webshop.model;
 
 import se.jensen.anton.webshop.controller.ControllerRequest;
-import se.jensen.anton.webshop.controller.InputFactory;
-import se.jensen.anton.webshop.controller.ScannerInput;
-import se.jensen.anton.webshop.view.ViewInputDescription;
+
+import java.util.List;
 
 public class FliesDry extends Product {
 
@@ -15,14 +14,12 @@ public class FliesDry extends Product {
         setDescription(description);
     }
 
-    private FliesDry createDry() {
-        ControllerRequest descController = InputFactory.scannerController(new VerifyingDescription(), new ViewInputDescription(), new ScannerInput(scanner));
-        String art;
-        String title = setTitle(controllerRequest.requestData());
-        String price = setPrice(controllerRequest.requestData());
-        String desc = descController.requestData();
-        return new FliesDry(art, title, price, desc);
+    public FliesDry createDryFly(ControllerRequest controllerRequest) {
+        List<String> input = controllerRequest.requestData(controllerRequest.createControllerRequests());
+        FliesDry fliesDry = new FliesDry(input.get(0), input.get(1), input.get(2), input.get(3));
+        return fliesDry;
     }
+
 
     @Override
     public String category() {
