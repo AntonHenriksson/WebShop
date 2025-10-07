@@ -7,6 +7,11 @@ public abstract class Product {
     private String description;
     private String category;
 
+    public Product(String articleNumber, String title, String price, String description) {
+    }
+
+    public Product() {
+    }
 
     public abstract String category();
 
@@ -53,12 +58,9 @@ public abstract class Product {
 
     @Override
     public String toString() {
-        return "Product{" +
-                "articleNumber='" + articleNumber + '\'' +
-                ", title='" + title + '\'' +
-                ", price=" + price +
-                ", description='" + description + '\'' +
-                ", category='" + category + '\'' +
-                '}';
+        return "articleNumber: <" + articleNumber +
+                "> title: <" + title +
+                "> price: <" + price +
+                "> description: <" + description + "> category: <" + category + ">";
     }
 }

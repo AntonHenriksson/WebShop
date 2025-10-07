@@ -12,6 +12,7 @@ public class Main {
         MainMenuController menuController = new MainMenuController(new ViewMainMenu(), new ModelMenu(), new ScannerInput());
         menuController.mainMenu(controllerRequest);
 
+
     }
 
 

@@ -3,7 +3,11 @@ package se.jensen.anton.webshop.model;
 public class VerifyingArticleNumber implements Verifying {
     @Override
     public boolean valid(String message) {
-        if (message.length() == 5) {
+        if (message.length() != 5) {
+            System.out.println("Not 5 digits!");
+            return false;
+        }
+        {
             try {
                 int value = Integer.parseInt(message);
                 return true;
@@ -18,4 +22,5 @@ public class VerifyingArticleNumber implements Verifying {
     public String format(String message) {
         return message;
     }
+
 }

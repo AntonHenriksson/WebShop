@@ -11,8 +11,10 @@ public class MainMenuController extends MenuController {
 
 
     public void mainMenu(ControllerRequest controllerRequest) {
-
+        ProductFile productFile = new ProductFile();
+        productFile.createFile();
         ProductController productController = new ProductController(new ProductView(), new ProductRepo());
+        productController.importFile(productFile.makeNewOldList());
         while (getModel().isRunning()) {
             getView().showMenu();
             switch (menuChoice()) {
@@ -51,6 +53,7 @@ public class MainMenuController extends MenuController {
                 }
                 case 5 -> {
                     System.out.println("Quit");
+                    productFile.writeToFile(productController.getProducts());
                     getModel().quit();
                 }
             }
