@@ -67,6 +67,7 @@ public class ProductFile {
         try {
             Files.writeString(Path.of(STORAGE_FILE), appendThis, StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING);
         } catch (IOException e) {
+            System.out.println("Failed to write to file, hope you have backup!");
             e.printStackTrace();
         }
 
