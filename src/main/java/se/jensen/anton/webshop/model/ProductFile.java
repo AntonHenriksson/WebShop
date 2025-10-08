@@ -65,7 +65,7 @@ public class ProductFile {
             appendThis += SetObjectToString(product) + System.lineSeparator();
         }
         try {
-            Files.writeString(Path.of(STORAGE_FILE), appendThis, StandardOpenOption.CREATE, StandardOpenOption.APPEND);
+            Files.writeString(Path.of(STORAGE_FILE), appendThis, StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING);
         } catch (IOException e) {
             e.printStackTrace();
         }
