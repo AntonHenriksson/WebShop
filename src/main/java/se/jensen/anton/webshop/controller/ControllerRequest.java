@@ -47,10 +47,14 @@ public class ControllerRequest {
     public List<ControllerRequest> createControllerRequests() {
 
         List<ControllerRequest> list = new ArrayList<>();
-        ControllerRequest DController = new ControllerRequest(new VerifyingDescription(), new ViewInputDescription(), new ScannerInput());
-        ControllerRequest TController = new ControllerRequest(new VerifyingTitle(), new ViewInputTitle(), new ScannerInput());
-        ControllerRequest PController = new ControllerRequest(new VerifyingPrice(), new ViewInputPrice(), new ScannerInput());
-        ControllerRequest AController = new ControllerRequest(new VerifyingArticleNumber(), new ViewInputArticleNumber(), new ScannerInput());
+        ControllerRequest DController = new ControllerRequest(new VerifyingDescription(),
+                new ViewInputDescription(), new ScannerInput());
+        ControllerRequest TController = new ControllerRequest(new VerifyingTitle(),
+                new ViewInputTitle(), new ScannerInput());
+        ControllerRequest PController = new ControllerRequest(new VerifyingPrice(),
+                new ViewInputPrice(), new ScannerInput());
+        ControllerRequest AController = new ControllerRequest(new VerifyingArticleNumber(),
+                new ViewInputArticleNumber(), new ScannerInput());
         //atpd
         list.add(AController);
         list.add(TController);

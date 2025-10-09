@@ -67,7 +67,7 @@ public class ProductController {
         repo.remove(getSpecificProduct(Articlenum));
     }
 
-    public List getProducts() {
+    public List<Product> getProducts() {
         return repo.getPRODUCTS();
     }
 
