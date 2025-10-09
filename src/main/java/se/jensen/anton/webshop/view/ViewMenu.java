@@ -18,4 +18,9 @@ public interface ViewMenu {
     default int guiAddMenuChoice() {
         return -1;
     }
+
+    default String showRemovePrompt() {
+        return null;
+    }
+
 }

@@ -5,11 +5,11 @@ import se.jensen.anton.webshop.view.ViewMenu;
 
 public class MenuController {
 
-    private final InputController input;
+    private final InputProvider input;
     private final ViewMenu view;
     private final ModelMenu model;
 
-    public MenuController(ViewMenu view, ModelMenu model, InputController input) {
+    public MenuController(ViewMenu view, ModelMenu model, InputProvider input) {
         this.input = input;
         this.view = view;
         this.model = model;
@@ -17,17 +17,15 @@ public class MenuController {
 
 
     public int menuChoice() {
-        int choice = 0;
-
         try {
-            choice = Integer.parseInt(input.getInput());
+            return Integer.parseInt(input.getString("Enter your choice"));
         } catch (NumberFormatException e) {
             System.out.println("Invalid input, enter a number please");
         }
-        return choice;
+        return 0;
     }
 
-    protected InputController getInput() {
+    protected InputProvider getInput() {
         return input;
     }
 

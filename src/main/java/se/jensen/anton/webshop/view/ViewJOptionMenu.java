@@ -23,6 +23,11 @@ public class ViewJOptionMenu implements ViewMenu {
 
 
     @Override
+    public String showRemovePrompt() {
+        return JOptionPane.showInputDialog("Enter the article number of the product you want to remove:");
+    }
+
+    @Override
     public int guiAddMenuChoice() {
         int choice;
         String[] mainMenuOption = {"Dry Fly", "Nymph Fly", "Streamer Fly", "Back To Menu"};

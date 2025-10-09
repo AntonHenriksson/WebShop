@@ -2,6 +2,12 @@ package se.jensen.anton.webshop.view;
 
 public class ViewMainMenu implements ViewMenu {
 
+
+    @Override
+    public String showRemovePrompt() {
+        return "";
+    }
+
     @Override
     public void showMenu() {
         System.out.println("""

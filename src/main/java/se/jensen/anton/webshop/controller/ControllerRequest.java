@@ -9,12 +9,12 @@ import java.util.List;
 public class ControllerRequest {
     private final Verifying verifier;
     private final ViewInput view;
-    private final InputController input;
+    private final InputProvider input;
 
 
     public ControllerRequest(Verifying verifier,
                              ViewInput view,
-                             InputController input) {
+                             InputProvider input) {
         this.verifier = verifier;
         this.view = view;
         this.input = input;
@@ -25,13 +25,12 @@ public class ControllerRequest {
         List<String> results = new ArrayList();
         for (ControllerRequest controllerRequest : controllerRequests) {
             while (true) {
-                System.out.println(controllerRequest.view.prompt());
-                String message = controllerRequest.input.getInput();
+                String message = controllerRequest.input.getString(controllerRequest.view.prompt());
                 if (!controllerRequest.verifier.valid(message)) {
                     continue;
                 } else {
                     controllerRequest.view.info(message);
-                    if (controllerRequest.input.getInput().equalsIgnoreCase("yes")) {
+                    if (controllerRequest.input.getString("Yes or No?").equalsIgnoreCase("yes")) {
                         results.add(controllerRequest.verifier.format(message));
                         break;
 
@@ -47,19 +46,15 @@ public class ControllerRequest {
     public List<ControllerRequest> createControllerRequests() {
 
         List<ControllerRequest> list = new ArrayList<>();
-        ControllerRequest DController = new ControllerRequest(new VerifyingDescription(),
-                new ViewInputDescription(), new ScannerInput());
-        ControllerRequest TController = new ControllerRequest(new VerifyingTitle(),
-                new ViewInputTitle(), new ScannerInput());
-        ControllerRequest PController = new ControllerRequest(new VerifyingPrice(),
-                new ViewInputPrice(), new ScannerInput());
-        ControllerRequest AController = new ControllerRequest(new VerifyingArticleNumber(),
-                new ViewInputArticleNumber(), new ScannerInput());
-        //atpd
-        list.add(AController);
-        list.add(TController);
-        list.add(PController);
-        list.add(DController);
+        list.add(new ControllerRequest(new VerifyingArticleNumber(),
+                new ViewInputArticleNumber(), new ConsoleInputProvider()));
+        list.add(new ControllerRequest(new VerifyingTitle(),
+                new ViewInputTitle(), new ConsoleInputProvider()));
+        list.add(new ControllerRequest(new VerifyingPrice(),
+                new ViewInputPrice(), new ConsoleInputProvider()));
+        list.add(new ControllerRequest(new VerifyingDescription(),
+                new ViewInputDescription(), new ConsoleInputProvider()));
+
         return list;
     }
 }

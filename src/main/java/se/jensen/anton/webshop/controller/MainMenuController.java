@@ -6,8 +6,8 @@ import se.jensen.anton.webshop.view.ViewJOptionMenu;
 import se.jensen.anton.webshop.view.ViewMainMenu;
 
 public class MainMenuController extends MenuController {
-    public MainMenuController(ViewMainMenu view, ModelMenu model, InputController input) {
-        super(view, model, input);
+    public MainMenuController(ViewMainMenu view, ModelMenu model, InputProvider inputProvider) {
+        super(view, model, inputProvider);
     }
 
 
@@ -24,8 +24,11 @@ public class MainMenuController extends MenuController {
                 case 1 -> {
                     productController.listProducts();
                 }
-                case 3 -> {
+                case 2 -> {
                     logicAddProduct(controllerRequest, productController);
+                }
+                case 3 -> {
+                    removeProduct(productController);
                 }
                 case 4 -> {
                     viewSpecific(productController);
@@ -45,13 +48,12 @@ public class MainMenuController extends MenuController {
     }
 
     private void removeProduct(ProductController productController) {
-        System.out.println("Enter the articlenumber of the product you want to remove.");
-        productController.removeProduct(getInput().getInput());
+        String input = getInput().getString("Enter the articlenumber of the product you want to remove.");
+        productController.removeProduct(input);
     }
 
     private void viewSpecific(ProductController productController) {
-        System.out.println("Enter the articlenumber of the product you want to see.");
-        productController.showSpecificProduct(getInput().getInput());
+        productController.showSpecificProduct(getInput().getString("Enter the articlenumber of the product you want to see."));
     }
 
     private int getMenuUserChoice() {
@@ -72,7 +74,7 @@ public class MainMenuController extends MenuController {
             getView().showAddMenu();
             addChoice = menuChoice();
         }
-        switch (menuChoice()) {
+        switch (addChoice) {
             case 1 -> {
                 FliesDry dry = ProductFactory.createFliesDry(controllerRequest);
                 productController.addProduct(dry);
