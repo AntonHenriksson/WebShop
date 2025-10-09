@@ -1,0 +1,17 @@
+00001!!!Caddies!!!0,50!!!Use for surface disruption!!!Dry
+00002!!!MayFly!!!0,50!!!Let it lay still and watch the magic happend!!!Dry
+00003!!!Yellowjack!!!0,50!!!Only when yellowjackets fall down!!!Dry
+00004!!!Hare!!!1,50!!!Classic!!!Nymph
+00005!!!Worm!!!1,50!!!For when they are on the bottom!!!Nymph
+00006!!!Night!!!1,50!!!Dark and subtle!!!Nymph
+00007!!!Montana!!!2,50!!!Red and Yellow Classic!!!Streamer
+00008!!!Maggot!!!2,50!!!Pink Streamer!!!Streamer
+00001!!!Caddies!!!0,50!!!Use for surface disruption!!!Dry
+00002!!!MayFly!!!0,50!!!Let it lay still and watch the magic happend!!!Dry
+00003!!!Yellowjack!!!0,50!!!Only when yellowjackets fall down!!!Dry
+00004!!!Hare!!!1,50!!!Classic!!!Nymph
+00005!!!Worm!!!1,50!!!For when they are on the bottom!!!Nymph
+00006!!!Night!!!1,50!!!Dark and subtle!!!Nymph
+00007!!!Montana!!!2,50!!!Red and Yellow Classic!!!Streamer
+00008!!!Maggot!!!2,50!!!Pink Streamer!!!Streamer
+00001!!!Yes!!!2,00!!!yes!!!Dry
