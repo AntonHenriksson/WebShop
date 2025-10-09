@@ -60,12 +60,12 @@ public class ProductFile {
 
     public void writeToFile(List<Product> products) {
 
-        String appendThis = "";
+        StringBuilder appendThis = new StringBuilder();
         for (Product product : products) {
-            appendThis += SetObjectToString(product) + System.lineSeparator();
+            appendThis.append(SetObjectToString(product)).append(System.lineSeparator());
         }
         try {
-            Files.writeString(Path.of(STORAGE_FILE), appendThis, StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING);
+            Files.writeString(Path.of(STORAGE_FILE), appendThis.toString(), StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING);
         } catch (IOException e) {
             System.out.println("Failed to write to file, hope you have backup!");
             e.printStackTrace();
