@@ -4,7 +4,6 @@ public class VerifyingArticleNumber implements Verifying {
     @Override
     public boolean valid(String message) {
         if (message.length() != 5) {
-            System.out.println("Not 5 digits!");
             return false;
         }
         {

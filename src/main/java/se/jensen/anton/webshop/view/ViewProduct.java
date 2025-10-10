@@ -4,7 +4,7 @@ import se.jensen.anton.webshop.model.Product;
 
 import java.util.List;
 
-public class ProductView {
+public class ViewProduct {
 
 
     public void showProducts(List<Product> products) {

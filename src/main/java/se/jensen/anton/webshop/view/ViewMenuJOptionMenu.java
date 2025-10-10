@@ -2,7 +2,7 @@ package se.jensen.anton.webshop.view;
 
 import javax.swing.*;
 
-public class ViewJOptionMenu implements ViewMenu {
+public class ViewMenuJOptionMenu implements ViewMenu {
     @Override
     public int guiMenuChoice() {
         int choice;

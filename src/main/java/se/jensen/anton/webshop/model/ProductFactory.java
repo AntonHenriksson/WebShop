@@ -18,7 +18,7 @@ public class ProductFactory {
     }
 
     public static FliesStreamer createFliesStreamer(ControllerRequest controllerRequest) {
-        List<String> input = controllerRequest.requestData(controllerRequest.createControllerRequests());
+        List<String> input = controllerRequest.requestData(controllerRequest.guiRequests());
         FliesStreamer fliesStreamer = new FliesStreamer(input.get(0), input.get(1), input.get(2), input.get(3));
         return fliesStreamer;
     }

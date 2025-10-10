@@ -3,16 +3,16 @@ package se.jensen.anton.webshop.controller;
 import se.jensen.anton.webshop.model.Product;
 import se.jensen.anton.webshop.model.ProductRepo;
 import se.jensen.anton.webshop.model.VerifyingArticleNumber;
-import se.jensen.anton.webshop.view.ProductView;
+import se.jensen.anton.webshop.view.ViewProduct;
 
 import java.util.List;
 
 public class ProductController {
-    private ProductView view;
+    private ViewProduct view;
     private ProductRepo repo;
 
 
-    public ProductController(ProductView view, ProductRepo repo) {
+    public ProductController(ViewProduct view, ProductRepo repo) {
         this.view = view;
         this.repo = repo;
     }

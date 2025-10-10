@@ -1,12 +1,12 @@
 package se.jensen.anton.webshop.controller;
 
 import se.jensen.anton.webshop.model.*;
-import se.jensen.anton.webshop.view.ProductView;
-import se.jensen.anton.webshop.view.ViewJOptionMenu;
-import se.jensen.anton.webshop.view.ViewMainMenu;
+import se.jensen.anton.webshop.view.ViewMenu;
+import se.jensen.anton.webshop.view.ViewMenuJOptionMenu;
+import se.jensen.anton.webshop.view.ViewProduct;
 
 public class MainMenuController extends MenuController {
-    public MainMenuController(ViewMainMenu view, ModelMenu model, InputProvider inputProvider) {
+    public MainMenuController(ViewMenu view, ModelMenu model, InputProvider inputProvider) {
         super(view, model, inputProvider);
     }
 
@@ -14,7 +14,7 @@ public class MainMenuController extends MenuController {
     public void mainMenu(ControllerRequest controllerRequest) {
         ProductFile productFile = new ProductFile();
         productFile.createFile();
-        ProductController productController = new ProductController(new ProductView(),
+        ProductController productController = new ProductController(new ViewProduct(),
                 new ProductRepo());
         productController.importFile(productFile.makeNewOldList());
 
@@ -57,7 +57,7 @@ public class MainMenuController extends MenuController {
     }
 
     private int getMenuUserChoice() {
-        if (getView() instanceof ViewJOptionMenu guiView) {
+        if (getView() instanceof ViewMenuJOptionMenu guiView) {
             return guiView.guiMenuChoice();
         } else {
             getView().showMenu();
@@ -68,7 +68,7 @@ public class MainMenuController extends MenuController {
     private void logicAddProduct(ControllerRequest controllerRequest,
                                  ProductController productController) {
         int addChoice;
-        if (getView() instanceof ViewJOptionMenu guiView) {
+        if (getView() instanceof ViewMenuJOptionMenu guiView) {
             addChoice = guiView.guiAddMenuChoice();
         } else {
             getView().showAddMenu();
