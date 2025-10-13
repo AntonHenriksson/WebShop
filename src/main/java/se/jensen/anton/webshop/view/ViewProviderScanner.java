@@ -1,11 +1,15 @@
 package se.jensen.anton.webshop.view;
 
 
+import se.jensen.anton.webshop.controller.InputProvider;
+
 public class ViewProviderScanner implements ViewProvider {
     private String prompt;
+    private final InputProvider inputProvider;
 
-    public ViewProviderScanner(String prompt) {
+    public ViewProviderScanner(String prompt, InputProvider inputProvider) {
         this.prompt = prompt;
+        this.inputProvider = inputProvider;
 
     }
 
@@ -17,17 +21,14 @@ public class ViewProviderScanner implements ViewProvider {
 
     @Override
     public String info(String message) {
-        return "You typed: ---" + message + "--- is that correct?";
+        return inputProvider.getString("You typed: ---" + message + "--- is that correct? yes/no?");
 
     }
 
     @Override
     public String prompt() {
-        return prompt;
+        return inputProvider.getString(prompt);
     }
 
-    @Override
-    public void setPrompt(String prompt) {
 
-    }
 }

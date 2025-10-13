@@ -8,4 +8,3 @@
 00008!!!Maggot!!!2,50!!!Pink Streamer!!!Streamer
 00009!!!Mickey finn!!!3,50!!!Amazing colors!!!Streamer
 11111!!!Wowfly!!!54,40!!!Works WOW!!!Dry
-22222!!!Anton!!!2!!!OK!!!Streamer

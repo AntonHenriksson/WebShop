@@ -41,7 +41,4 @@ public class ViewProviderGuiInputView implements ViewProvider {
         return JOptionPane.showInputDialog(prompt);
     }
 
-    public void setPrompt(String prompt) {
-        this.prompt = prompt;
-    }
 }

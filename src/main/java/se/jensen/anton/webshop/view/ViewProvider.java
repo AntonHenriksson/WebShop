@@ -7,8 +7,5 @@ public interface ViewProvider {
 
     public String prompt();
 
-    default void setPrompt(String prompt) {
-    }
-
 
 }

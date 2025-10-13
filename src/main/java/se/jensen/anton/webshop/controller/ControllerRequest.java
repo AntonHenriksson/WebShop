@@ -27,7 +27,7 @@ public class ControllerRequest {
         List<String> results = new ArrayList<>();
         for (ControllerRequest controllerRequest : controllerRequests) {
             while (true) {
-                String message = (controllerRequest.view.prompt());
+                String message = controllerRequest.view.prompt();
                 if (!controllerRequest.verifier.valid(message)) {
                     controllerRequest.view.error();
                     continue;
@@ -48,13 +48,13 @@ public class ControllerRequest {
         InputProvider scanner = new ConsoleInputProvider();
         List<ControllerRequest> list = new ArrayList<>();
         list.add(new ControllerRequest(new VerifyingArticleNumber(),
-                new ViewProviderScanner("Enter articlenumber for the Product, 5 digits"), scanner));
+                new ViewProviderScanner("Enter articlenumber for the Product, 5 digits", scanner), scanner));
         list.add(new ControllerRequest(new VerifyingTitle(),
-                new ViewProviderScanner("Enter a title with maximum 15 characters"), scanner));
+                new ViewProviderScanner("Enter a title with maximum 15 characters", scanner), scanner));
         list.add(new ControllerRequest(new VerifyingPrice(),
-                new ViewProviderScanner("Enter the price using following example 4.99"), scanner));
+                new ViewProviderScanner("Enter the price using following example 4.99", scanner), scanner));
         list.add(new ControllerRequest(new VerifyingDescription(),
-                new ViewProviderScanner("Enter description for the Product, example: This works well for trout"), scanner));
+                new ViewProviderScanner("Enter description for the Product, example: This works well for trout", scanner), scanner));
 
         return list;
     }
