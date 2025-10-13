@@ -5,8 +5,8 @@ import se.jensen.anton.webshop.controller.ControllerRequest;
 import se.jensen.anton.webshop.controller.GuiInputProvider;
 import se.jensen.anton.webshop.controller.MainMenuController;
 import se.jensen.anton.webshop.model.ModelMenu;
+import se.jensen.anton.webshop.view.ViewMenuConsole;
 import se.jensen.anton.webshop.view.ViewMenuJOptionMenu;
-import se.jensen.anton.webshop.view.ViewMenuOption;
 import se.jensen.anton.webshop.view.ViewProductConsole;
 import se.jensen.anton.webshop.view.ViewProductGui;
 
@@ -17,7 +17,6 @@ public class Main {
 
         ModelMenu modelMenu = new ModelMenu();
 
-        // Let the user choose the mode in a GUI dialog at startup
         String[] modes = {"Console", "GUI"};
         int modeChoice = JOptionPane.showOptionDialog(
                 null,
@@ -31,7 +30,6 @@ public class Main {
         );
 
         if (modeChoice == 1) {
-            // === GUI MODE ===
             ViewMenuJOptionMenu view = new ViewMenuJOptionMenu();
             GuiInputProvider input = new GuiInputProvider();
             ViewProductGui viewProductGui = new ViewProductGui();
@@ -40,12 +38,11 @@ public class Main {
             mainMenu.mainMenu(new ControllerRequest(null, null, input), viewProductGui);
 
         } else {
-            // === CONSOLE MODE ===
             ConsoleInputProvider consoleInput = new ConsoleInputProvider();
-            ViewMenuOption viewMenuOption = new ViewMenuOption();
+            ViewMenuConsole viewMenuConsole = new ViewMenuConsole();
             ViewProductConsole viewProductConsole = new ViewProductConsole();
 
-            MainMenuController mainMenu = new MainMenuController(viewMenuOption, modelMenu, consoleInput);
+            MainMenuController mainMenu = new MainMenuController(viewMenuConsole, modelMenu, consoleInput);
             mainMenu.mainMenu(ControllerRequest.dummy(), viewProductConsole);
         }
     }

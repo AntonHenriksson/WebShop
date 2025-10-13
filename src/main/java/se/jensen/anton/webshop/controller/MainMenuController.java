@@ -1,31 +1,13 @@
 package se.jensen.anton.webshop.controller;
 
 import se.jensen.anton.webshop.model.*;
-import se.jensen.anton.webshop.view.*;
+import se.jensen.anton.webshop.view.ViewMenu;
+import se.jensen.anton.webshop.view.ViewMenuJOptionMenu;
+import se.jensen.anton.webshop.view.ViewProduct;
 
 public class MainMenuController extends MenuController {
     public MainMenuController(ViewMenu view, ModelMenu model, InputProvider inputProvider) {
         super(view, model, inputProvider);
-    }
-
-    public void startMenu(InputProvider inputProvider, ViewMenuOption viewMenu) {
-        viewMenu.showMenu();
-        ControllerRequest controllerRequest;
-        ViewProduct viewProduct;
-        String choice = getInput().getString("choice");
-
-        if (choice.equals("2")) { // GUI mode
-            InputProvider guiInput = new GuiInputProvider();
-            controllerRequest = new ControllerRequest(null, null, guiInput);
-
-            viewProduct = new ViewProductGui();
-        } else { // Console mode
-            InputProvider consoleInput = new ConsoleInputProvider();
-            controllerRequest = new ControllerRequest(null, null, consoleInput);
-            viewProduct = new ViewProductConsole();
-        }
-
-        mainMenu(controllerRequest, viewProduct);
     }
 
 
