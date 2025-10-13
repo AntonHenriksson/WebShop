@@ -22,7 +22,7 @@ public class ViewProductGui implements ViewProduct {
         JList<Product> list = new JList<>(modelingmodeling);
         list.setVisibleRowCount(Math.min(products.size(), 10));
         JScrollPane scrollPane = new JScrollPane(list);
-        scrollPane.setPreferredSize(new java.awt.Dimension(500, 500));
+        scrollPane.setPreferredSize(new java.awt.Dimension(860, 640));
 
         JOptionPane.showMessageDialog(null, scrollPane, "Product List", JOptionPane.INFORMATION_MESSAGE);
 
