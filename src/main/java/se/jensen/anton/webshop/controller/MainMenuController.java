@@ -1,22 +1,38 @@
 package se.jensen.anton.webshop.controller;
 
 import se.jensen.anton.webshop.model.*;
-import se.jensen.anton.webshop.view.ViewMenu;
-import se.jensen.anton.webshop.view.ViewMenuJOptionMenu;
-import se.jensen.anton.webshop.view.ViewProduct;
+import se.jensen.anton.webshop.view.*;
 
 public class MainMenuController extends MenuController {
     public MainMenuController(ViewMenu view, ModelMenu model, InputProvider inputProvider) {
         super(view, model, inputProvider);
     }
 
+    public void startMenu(InputProvider inputProvider, ViewMenuOption viewMenu) {
+        viewMenu.showMenu();
+        ControllerRequest controllerRequest;
+        ViewProduct viewProduct;
+        String choice = getInput().getString("Choose: ");
+        if (choice.equals("2")) {
+            controllerRequest = new ControllerRequest
+                    (null, null, new GuiInputProvider());
+            viewProduct = new ViewProductGui();
+        } else {
+            controllerRequest = new ControllerRequest
+                    (null, null, new ConsoleInputProvider());
+            viewProduct = new ViewProductConsole();
+        }
+        mainMenu(controllerRequest, viewProduct);
+    }
 
-    public void mainMenu(ControllerRequest controllerRequest) {
+
+    public void mainMenu(ControllerRequest controllerRequest, ViewProduct viewProduct) {
         ProductFile productFile = new ProductFile();
         productFile.createFile();
-        ProductController productController = new ProductController(new ViewProduct(),
+        ProductController productController = new ProductController(viewProduct,
                 new ProductRepo());
         productController.importFile(productFile.makeNewOldList());
+
 
         while (getModel().isRunning()) {
             int choice = getMenuUserChoice();

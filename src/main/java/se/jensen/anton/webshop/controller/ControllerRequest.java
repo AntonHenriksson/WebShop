@@ -44,7 +44,15 @@ public class ControllerRequest {
         return results;
     }
 
-    public List<ControllerRequest> createControllerRequests() {
+    public List<ControllerRequest> getRequestForCurrentMode() {
+        if (this.input instanceof GuiInputProvider) {
+            return guiRequests(this.input);
+        } else {
+            return createControllerRequests();
+        }
+    }
+
+    public static List<ControllerRequest> createControllerRequests() {
         InputProvider scanner = new ConsoleInputProvider();
         List<ControllerRequest> list = new ArrayList<>();
         list.add(new ControllerRequest(new VerifyingArticleNumber(),
@@ -59,17 +67,16 @@ public class ControllerRequest {
         return list;
     }
 
-    public List<ControllerRequest> guiRequests() {
-        InputProvider input = new GuiInputProvider();
+    public static List<ControllerRequest> guiRequests(InputProvider input) {
         List<ControllerRequest> list = new ArrayList<>();
         list.add(new ControllerRequest(new VerifyingArticleNumber(),
-                new ViewProviderGuiInputView("Enter articlenumber for the Product, 5 digits"), input));
+                new ViewProviderGuiInputView("Enter articlenumber for the Product, 5 digits", input), input));
         list.add(new ControllerRequest(new VerifyingTitle(),
-                new ViewProviderGuiInputView("Enter a title with maximum of 15 characters"), input));
+                new ViewProviderGuiInputView("Enter a title with maximum of 15 characters", input), input));
         list.add(new ControllerRequest(new VerifyingPrice(),
-                new ViewProviderGuiInputView("Enter the price using following example, 4.99"), input));
+                new ViewProviderGuiInputView("Enter the price using following example, 4.99", input), input));
         list.add(new ControllerRequest(new VerifyingDescription(),
-                new ViewProviderGuiInputView("Enter description for the Product, example: This works well for trout"), input));
+                new ViewProviderGuiInputView("Enter description for the Product, example: This works well for trout", input), input));
 
         return list;
     }

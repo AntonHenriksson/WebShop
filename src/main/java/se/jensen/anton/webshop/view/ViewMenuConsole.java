@@ -1,6 +1,6 @@
 package se.jensen.anton.webshop.view;
 
-public class ViewMenuMain implements ViewMenu {
+public class ViewMenuConsole implements ViewMenu {
 
 
     @Override

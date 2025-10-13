@@ -1,12 +1,16 @@
 package se.jensen.anton.webshop.view;
 
+import se.jensen.anton.webshop.controller.InputProvider;
+
 import javax.swing.*;
 
 public class ViewProviderGuiInputView implements ViewProvider {
     private String prompt;
+    private final InputProvider inputProvider;
 
-    public ViewProviderGuiInputView(String prompt) {
+    public ViewProviderGuiInputView(String prompt, InputProvider inputProvider) {
         this.prompt = prompt;
+        this.inputProvider = inputProvider;
     }
 
 
@@ -38,7 +42,7 @@ public class ViewProviderGuiInputView implements ViewProvider {
 
     @Override
     public String prompt() {
-        return JOptionPane.showInputDialog(prompt);
+        return inputProvider.getString(prompt);
     }
 
 }
