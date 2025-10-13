@@ -12,16 +12,19 @@ public class MainMenuController extends MenuController {
         viewMenu.showMenu();
         ControllerRequest controllerRequest;
         ViewProduct viewProduct;
-        String choice = getInput().getString("Choose: ");
-        if (choice.equals("2")) {
-            controllerRequest = new ControllerRequest
-                    (null, null, new GuiInputProvider());
+        String choice = getInput().getString("choice");
+
+        if (choice.equals("2")) { // GUI mode
+            InputProvider guiInput = new GuiInputProvider();
+            controllerRequest = new ControllerRequest(null, null, guiInput);
+
             viewProduct = new ViewProductGui();
-        } else {
-            controllerRequest = new ControllerRequest
-                    (null, null, new ConsoleInputProvider());
+        } else { // Console mode
+            InputProvider consoleInput = new ConsoleInputProvider();
+            controllerRequest = new ControllerRequest(null, null, consoleInput);
             viewProduct = new ViewProductConsole();
         }
+
         mainMenu(controllerRequest, viewProduct);
     }
 

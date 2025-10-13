@@ -4,6 +4,9 @@ public class VerifyingPrice implements Verifying {
 
     @Override
     public boolean valid(String message) {
+        if (message == null) {
+            return false;
+        }
         try {
             double value = Double.parseDouble(message);
             return value > 0;

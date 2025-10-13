@@ -45,8 +45,8 @@ public class ControllerRequest {
     }
 
     public List<ControllerRequest> getRequestForCurrentMode() {
-        if (this.input instanceof GuiInputProvider) {
-            return guiRequests(this.input);
+        if (input instanceof GuiInputProvider guiInput) {
+            return guiRequests(guiInput);
         } else {
             return createControllerRequests();
         }
